@@ -1,0 +1,54 @@
+1.全局安装Tarojs
+  # npm
+    -- npm install -g @tarojs/cli
+
+  # yarn
+    -- yarn global add @tarojs/cli
+  
+  tip: 查看 Taro 全部版本信息 -- npm info @tarojs/cli
+
+2.项目初始化
+  # 全局安装下使用命令创建(推荐)
+   -- taro init projectName[项目名称]
+
+  # 非全局安装需npm 5.2+使用npx创建
+   -- npx @tarojs/cli init projectName[项目名称]
+
+  tip: 初始化时默认自动安装依赖，安装使用的工具按照 yarn > cnpm > npm 顺序进行检测，若安装失败，则需手动安装
+
+3.开发
+  # 项目结构
+    ├── dist                   编译结果目录
+    ├── config                 配置目录
+    |   ├── dev.js             开发时配置
+    |   ├── index.js           默认配置
+    |   └── prod.js            打包时配置
+    ├── src                    源码目录
+    |   ├── pages              页面文件目录
+    |   |   ├── index          index 页面目录
+    |   |   |   ├── index.js   index 页面逻辑
+    |   |   |   └── index.css  index 页面样式
+    |   ├── app.css            项目总通用样式
+    |   └── app.js             项目入口文件
+    └── package.json
+
+  # Taro 编译分为 dev 和 build 模式：
+    -- dev 模式（增加 --watch 参数） 将会监听文件修改
+    -- build 模式（去掉 --watch 参数） 将不会监听文件修改，并会对代码进行压缩打包
+    -- dev 模式生成的文件较大，设置环境变量 NODE_ENV 为 production 可以开启压缩，方便预览，但编译速度会下降
+
+  # taro doctor -该命令可以诊断项目的依赖、设置、结构，以及代码的规范是否存在问题，并尝试给出解决方案
+
+  # Taro create --pageName[页面名称] -该命令能在当前项目的pages目录下快速生成新的页面文件，并填充基础代码
+
+4.Taro UI -组件库可以在 微信小程序，支付宝小程序，百度小程序，H5 多端适配运行（ReactNative 端暂不支持）
+  # 使用Taro 3.x需要搭配Taro UI @3.0.0+版本使用，官网连个版本号都没有，我服！-npm install taro-ui@3.0.0-alpha.3
+
+5.补充说明
+  # 通过 Taro 模板创建的项目都会默认拥有 project.config.json 这一项目配置文件，这个文件 只能用于微信小程序，
+    若要兼容到其他小程序平台，请按相应平台手动增加配置文件，其配置与各自小程序平台要求的一致
+
+  # /src/app.config.js下 pages 数组的第一项代表小程序的初始页面（首页）。小程序中新增/减少页面，
+    都需要对 pages 数组进行修改
+  
+  # 
