@@ -1,0 +1,13 @@
+.search {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #dfdfdf;
+  .search-ipt {
+    width: 78%;
+  }
+  .search-btn {
+    max-width: 20%;
+  }
+}
