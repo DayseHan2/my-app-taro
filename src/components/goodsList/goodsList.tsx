@@ -1,13 +1,16 @@
 import { Component } from 'react'
 import { View, Image, Text } from '@tarojs/components'
 import './goodsList.scss'
-import request from "../../utils/request"
+import request from '../../utils/request'
+import ApiUrl from '../../api/index'
+console.log(ApiUrl);
+
 
 export default class Banner extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      ListData: []
+      dataList: []
     }
   }
 
@@ -33,21 +36,30 @@ export default class Banner extends Component {
   }
 
   getList () {
-    const data = request({
-      url: 'https://api.virapi.com/vir_github1be479fgc18h9/demo/goodsList',
+    request({
+      url: ApiUrl.goodsList,
+      method: 'GET'
+    }).then(res => {
+      console.log('goodsList', res);
+      if (res.data) {
+        this.setState({
+          dataList: res.data
+        })
+      }
+    }).catch(err => {
+      console.log(err);
     });
-    console.log(data);
   }
 
   render () {
     return (
-      <View className='banner'>
+      <View className='goods-list'>
         {
-            this.state.ListData.map( item => {
+            this.state.dataList.map( item => {
               return (
-                <View key={item.id}>
-                  <Image className='swiper-item-img' src={item} ></Image>
-                  <Text>{item.title}</Text>
+                <View key={item.id} className="item-box">
+                  <Image className='item-img' src={item.img} mode='top'></Image>
+                  <Text className="item-text">{item.name}</Text>
                 </View>
               )
             })

@@ -39,7 +39,7 @@
 
   # taro doctor -该命令可以诊断项目的依赖、设置、结构，以及代码的规范是否存在问题，并尝试给出解决方案
 
-  # Taro create --pageName[页面名称] -该命令能在当前项目的pages目录下快速生成新的页面文件，并填充基础代码
+  # Taro create pageName[页面名称] -该命令能在当前项目的pages目录下快速生成新的页面文件，并填充基础代码
 
 4.Taro UI -组件库可以在 微信小程序，支付宝小程序，百度小程序，H5 多端适配运行（ReactNative 端暂不支持）
   # 使用Taro 3.x需要搭配Taro UI @3.0.0+版本使用，官网连个版本号都没有，我服！-npm install taro-ui@3.0.0-alpha.3
