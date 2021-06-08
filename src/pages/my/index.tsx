@@ -1,5 +1,5 @@
-import { useState, useEffect, useCallback } from 'react'
-import { useDidShow } from '@tarojs/taro' 
+import { useState, useEffect, useCallback} from 'react'
+import Taro, { useDidShow, useReady } from '@tarojs/taro' 
 import { View, Text, Image } from '@tarojs/components'
 import './index.scss'
 import request from '../../utils/request'
@@ -8,12 +8,16 @@ import apiUrl from '../../api/index'
 
 export default function My() {
   // getUserData();
-  const [userData, setState] = useState({url: '', userName: '测试用户', routerLink: [] });
-  const setStateFn = useCallback(data =>{
-    setState(data);
-  }, [])
 
+  console.log('111', 'default');
+  const [userData, setState] = useState({imgUrl: '', userName: '测试用户', routerLink: [] });
+
+  useReady(() =>{
+    console.log('222','useReady');
+    getUserData();
+  })
   useDidShow(() =>{
+    console.log('333', 'useDidShow');
   })
 
   function getUserData() {
@@ -23,8 +27,8 @@ export default function My() {
     }).then(res =>{
       console.log('my===', res)
       if (res.data) {
-        setStateFn({
-          url: res.data.url,
+        setState({
+          imgUrl: res.data.imgUrl,
           userName: res.data.userName,
           routerLink: res.data.routerLink
         })
@@ -34,12 +38,22 @@ export default function My() {
     })
   }
 
-
+  const routerFn = url =>{
+    console.log(url);
+    Taro.navigateTo({
+      url: url,
+      fail: function() {
+        Taro.switchTab({
+          url: url
+        })
+      }
+    })
+  }
 
   return (
     <View className='my'>
       <View className="my-icon">
-        <Image src={userData.url}></Image>
+        <Image src={userData.imgUrl}></Image>
         <Text>{userData.userName}</Text>
       </View>
 
@@ -48,12 +62,14 @@ export default function My() {
           userData.routerLink.map(item =>{
             return (
               <View
+                key={item.id}
                 onClick={() =>{
-                  this.navigateTo({
-                    url: item.url
-                  })
+                  return routerFn(item.url);
                 }}
-                >{item.text}</View>
+                >
+                <Text>{item.text}</Text>
+                <Image src={require('../../images/icon_right.svg')}></Image>
+              </View>
             )
           })
         }

@@ -3,7 +3,6 @@ import { View, Image, Text } from '@tarojs/components'
 import './goodsList.scss'
 import request from '../../utils/request'
 import ApiUrl from '../../api/index'
-console.log(ApiUrl);
 
 
 export default class Banner extends Component {
