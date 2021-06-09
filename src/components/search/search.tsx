@@ -3,9 +3,23 @@ import { View } from '@tarojs/components'
 import './search.scss'
 import { AtButton, AtInput } from 'taro-ui'
 
-export default class Search extends Component {
+interface Search {
+  state: StateType,
+  props: propType
+}
+
+type StateType = {
+  [key: string]: any
+};
+
+type propType = {
+  [key: string]: any
+}
+class Search extends Component {
   constructor (props) {
     super(props);
+    this.onSearch = this.onSearch.bind(this);
+    this.onChangeValue = this.onChangeValue.bind(this);
     this.state = {
       value: '',
     }
@@ -35,10 +49,18 @@ export default class Search extends Component {
     console.log(this.state.value);
   }
 
+  onChangeValue (val) {
+    this.setState({
+      value: val
+    })
+    return val
+  }
+
   render () {
     return (
       <View className='search'>
         <AtInput
+          onChange={this.onChangeValue}
           className="search-ipt"
           name='value'
           title=''
@@ -50,9 +72,11 @@ export default class Search extends Component {
           className='search-btn'
           type='primary'
           size='small'
-          onClick={this.onSearch.bind(this)}
+          onClick={this.onSearch}
           >搜索</AtButton>
       </View>
     )
   }
 }
+
+export default Search

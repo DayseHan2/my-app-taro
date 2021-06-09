@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback} from 'react'
+import { useState, useEffect, useLayoutEffect, useCallback} from 'react'
 import Taro, { useDidShow, useReady } from '@tarojs/taro' 
 import { View, Text, Image } from '@tarojs/components'
 import './index.scss'
@@ -11,13 +11,18 @@ export default function My() {
 
   console.log('111', 'default');
   const [userData, setState] = useState({imgUrl: '', userName: '测试用户', routerLink: [] });
-
-  useReady(() =>{
-    console.log('222','useReady');
-    getUserData();
+  useLayoutEffect(() =>{
+    console.log('222', 'useLayoutEffect');
   })
+  useEffect(() => {
+    console.log('222', 'onLoad');
+  }, []);
   useDidShow(() =>{
     console.log('333', 'useDidShow');
+  })
+  useReady(() =>{
+    getUserData();
+    console.log('444','useReady');
   })
 
   function getUserData() {
@@ -59,7 +64,7 @@ export default function My() {
 
       <View className="router-link">
         {
-          userData.routerLink.map(item =>{
+          userData.routerLink.map((item: any) =>{
             return (
               <View
                 key={item.id}

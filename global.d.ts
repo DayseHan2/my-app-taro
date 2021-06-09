@@ -11,8 +11,22 @@ declare module '*.scss';
 declare module '*.sass';
 declare module '*.styl';
 
+// interface Index {
+//   state: StateType,
+//   props: propType
+// }
+
+// type StateType = {
+//   [key: string]: string
+// };
+
+// type propType = {
+//   [key: string]: any
+// }
 declare namespace NodeJS {
   interface ProcessEnv {
     TARO_ENV: 'weapp' | 'swan' | 'alipay' | 'h5' | 'rn' | 'tt' | 'quickapp' | 'qq' | 'jd'
   }
 }
+
+

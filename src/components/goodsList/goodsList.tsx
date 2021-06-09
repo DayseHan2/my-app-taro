@@ -1,11 +1,22 @@
 import { Component } from 'react'
 import { View, Image, Text } from '@tarojs/components'
-import './goodsList.scss'
+import './GoodsList.scss'
 import request from '../../utils/request'
 import ApiUrl from '../../api/index'
+interface GoodsList {
+  state: StateType,
+  props: propType
+}
 
+type StateType = {
+  [key: string]: any
+};
 
-export default class Banner extends Component {
+type propType = {
+  [key: string]: any
+}
+
+class GoodsList extends Component {
   constructor (props) {
     super(props);
     this.state = {
@@ -54,7 +65,7 @@ export default class Banner extends Component {
     return (
       <View className='goods-list'>
         {
-            this.state.dataList.map( item => {
+            this.state.dataList.map( (item) => {
               return (
                 <View key={item.id} className="item-box">
                   <Image className='item-img' src={item.img} mode='top'></Image>
@@ -67,3 +78,5 @@ export default class Banner extends Component {
     )
   }
 }
+
+export default GoodsList

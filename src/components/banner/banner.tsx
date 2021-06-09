@@ -1,8 +1,19 @@
 import { Component } from 'react'
 import { View, Image, Swiper, SwiperItem } from '@tarojs/components'
 import './banner.scss'
+interface Banner {
+  state: StateType,
+  props: propType
+}
 
-export default class Banner extends Component {
+type StateType = {
+  [key: string]: any
+};
+
+type propType = {
+  [key: string]: any
+}
+class Banner extends Component {
   constructor (props) {
     super(props);
     this.state = {
@@ -34,10 +45,6 @@ export default class Banner extends Component {
     console.log('componentDidHide');
   }
 
-  onSearch () {
-    console.log(this.state.value);
-  }
-
   render () {
     return (
       <View className='banner'>
@@ -63,3 +70,5 @@ export default class Banner extends Component {
     )
   }
 }
+
+export default Banner

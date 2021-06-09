@@ -2,7 +2,19 @@ import { Component } from 'react'
 import { View, Text } from '@tarojs/components'
 import './index.scss'
 
-export default class Category extends Component {
+interface Category {
+  state: StateType,
+  props: propType
+}
+
+type StateType = {
+  [key: string]: any
+};
+
+type propType = {
+  [key: string]: any
+}
+class Category extends Component {
 
   componentWillMount () { }
 
@@ -22,3 +34,5 @@ export default class Category extends Component {
     )
   }
 }
+
+export default Category

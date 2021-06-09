@@ -5,8 +5,20 @@ import Search from '../../components/search/search'
 import Banner from '../../components/banner/banner'
 import GoodsList from '../../components/goodsList/goodsList'
 
-export default class Index extends Component {
-  constructor (props) {
+interface Index {
+  state: StateType,
+  props: propType
+}
+
+type StateType = {
+  [key: string]: any
+};
+
+type propType = {
+  [key: string]: any
+}
+class Index extends Component {
+  constructor (props: any) {
     super(props);
     this.addAge = this.addAge.bind(this);
     this.state = {
@@ -57,3 +69,5 @@ export default class Index extends Component {
     )
   }
 }
+
+export default Index
