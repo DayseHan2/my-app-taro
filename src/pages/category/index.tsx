@@ -1,38 +1,21 @@
-import { Component } from 'react'
+import { useState, useEffect, useLayoutEffect, useCallback} from 'react'
+import Taro, { useDidShow, useReady } from '@tarojs/taro' 
 import { View, Text } from '@tarojs/components'
+import CategoryTabs from '../../components/categoryTabs/categoryTabs'
 import './index.scss'
+import request from 'src/utils/request'
+import apiUrl from 'src/api/index'
 
-interface Category {
-  state: StateType,
-  props: propType
-}
+function Category() {
+  useDidShow(() =>{
 
-type StateType = {
-  [key: string]: any
-};
+  })
 
-type propType = {
-  [key: string]: any
-}
-class Category extends Component {
-
-  componentWillMount () { }
-
-  componentDidMount () { }
-
-  componentWillUnmount () { }
-
-  componentDidShow () { }
-
-  componentDidHide () { }
-
-  render () {
-    return (
-      <View className='category'>
-        <Text>Hello world!</Text>
-      </View>
-    )
-  }
+  return (
+    <View className='category'>
+      <CategoryTabs />
+    </View>
+  )
 }
 
 export default Category

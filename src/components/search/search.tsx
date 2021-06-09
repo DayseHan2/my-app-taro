@@ -15,6 +15,7 @@ type StateType = {
 type propType = {
   [key: string]: any
 }
+
 class Search extends Component {
   constructor (props) {
     super(props);
@@ -22,6 +23,7 @@ class Search extends Component {
     this.onChangeValue = this.onChangeValue.bind(this);
     this.state = {
       value: '',
+      placText: props.placText || '请输入'
     }
   }
 
@@ -47,6 +49,7 @@ class Search extends Component {
 
   onSearch () {
     console.log(this.state.value);
+    this.props.onSearch({ searchVal: this.state.value });
   }
 
   onChangeValue (val) {
@@ -65,7 +68,7 @@ class Search extends Component {
           name='value'
           title=''
           type='text'
-          placeholder='请输入检索内容'
+          placeholder={this.state.placText}
           value={this.state.value}
         />
         <AtButton 

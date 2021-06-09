@@ -20,19 +20,13 @@ type propType = {
 class Index extends Component {
   constructor (props: any) {
     super(props);
-    this.addAge = this.addAge.bind(this);
+    this.onSearch = this.onSearch.bind(this);
     this.state = {
-      show: false,
-      name: '',
-      age: 0,
+      placeolder: '请输入查询内容'
     }
   }
 
   componentWillMount () {
-    this.setState({
-      name: '黎明',
-      age: 18
-    })
     console.log('componentWillMount');
   }
 
@@ -52,17 +46,14 @@ class Index extends Component {
     console.log('componentDidHide');
   }
 
-  addAge () {
-    let _age = this.state.age + 1;
-    this.setState({
-      age: _age
-    })
+  onSearch(queryParams: object) {
+    console.log('查询参数', queryParams);
   }
 
   render () {
     return (
       <View className='index'>
-        <Search></Search>
+        <Search placText={this.state.placeolder} onSearch={this.onSearch}></Search>
         <Banner></Banner>
         <GoodsList></GoodsList>
       </View>

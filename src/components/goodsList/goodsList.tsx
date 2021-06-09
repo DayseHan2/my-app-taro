@@ -65,15 +65,15 @@ class GoodsList extends Component {
     return (
       <View className='goods-list'>
         {
-            this.state.dataList.map( (item) => {
-              return (
-                <View key={item.id} className="item-box">
-                  <Image className='item-img' src={item.img} mode='top'></Image>
-                  <Text className="item-text">{item.name}</Text>
-                </View>
-              )
-            })
-          }
+          this.state.dataList.map( (item) => {
+            return (
+              <View key={item.id} className="item-box">
+                <Image className='item-img' src={item.img} mode='top'></Image>
+                <Text className="item-text">{item.name}</Text>
+              </View>
+            )
+          })
+        }
       </View>
     )
   }
