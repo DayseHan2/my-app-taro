@@ -63,7 +63,7 @@ class GoodsList extends Component {
     });
   }
 
-  navDetail(item: object) {
+  navDetail(item = {img: '', name: ''}) {
     Taro.navigateTo({
       url: '/pages/detail/index' + `?img=${item.img}&name=${item.name}`
     })
@@ -75,11 +75,11 @@ class GoodsList extends Component {
         {
           this.state.dataList.map( (item) => {
             return (
-              <View key={item.id} className="item-box" onClick={() =>{
+              <View key={item.id} className='item-box' onClick={() =>{
                 this.navDetail(item)
                 }}>
                 <Image className='item-img' src={item.img} mode='top'></Image>
-                <Text className="item-text">{item.name}</Text>
+                <Text className='item-text'>{item.name}</Text>
               </View>
             )
           })

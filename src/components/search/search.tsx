@@ -64,13 +64,12 @@ class Search extends Component {
       <View className='search'>
         <AtInput
           onChange={this.onChangeValue}
-          className="search-ipt"
+          className='search-ipt'
           name='value'
           title=''
           type='text'
           placeholder={this.state.placText}
-          value={this.state.value}
-        />
+          value={this.state.value}/>
         <AtButton 
           className='search-btn'
           type='primary'

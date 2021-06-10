@@ -1,4 +1,4 @@
-import { useState, useEffect, useLayoutEffect, useCallback} from 'react'
+import { useState, useEffect, useLayoutEffect} from 'react'
 import Taro, { useDidShow, useReady } from '@tarojs/taro' 
 import { View, Text, Image } from '@tarojs/components'
 import './index.scss'
@@ -55,12 +55,12 @@ export default function My() {
 
   return (
     <View className='my'>
-      <View className="my-icon">
+      <View className='my-icon'>
         <Image src={userData.imgUrl}></Image>
         <Text>{userData.userName}</Text>
       </View>
 
-      <View className="router-link">
+      <View className='router-link'>
         {
           userData.routerLink.map((item: any) =>{
             return (

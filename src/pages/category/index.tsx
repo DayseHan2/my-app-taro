@@ -1,10 +1,7 @@
-import { useState, useEffect, useLayoutEffect, useCallback} from 'react'
-import Taro, { useDidShow, useReady } from '@tarojs/taro' 
-import { View, Text } from '@tarojs/components'
+import { useDidShow } from '@tarojs/taro' 
+import { View } from '@tarojs/components'
 import CategoryTabs from '../../components/categoryTabs/categoryTabs'
 import './index.scss'
-import request from 'src/utils/request'
-import apiUrl from 'src/api/index'
 
 function Category() {
   useDidShow(() =>{

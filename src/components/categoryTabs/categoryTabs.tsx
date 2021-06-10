@@ -1,11 +1,10 @@
-import { useState, useEffect, useLayoutEffect, useCallback} from 'react'
-import Taro, { useDidShow, useReady } from '@tarojs/taro' 
+import { useState} from 'react'
 import { View } from '@tarojs/components'
 import { AtTabs, AtTabsPane } from 'taro-ui'
 import './categoryTabs.scss'
 
 function CategoryTabs() {
-  const [tabList, setTabList] = useState(
+  const [tabList] = useState(
     [
       { title: '测试分类一' },
       { title: '测试分类二' },
@@ -24,7 +23,7 @@ function CategoryTabs() {
   }
 
   return (
-    <View className="category-tabs">
+    <View className='category-tabs'>
       <AtTabs
         current={currentIdx}
         scroll
