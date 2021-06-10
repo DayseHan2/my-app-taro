@@ -18,19 +18,23 @@
 
 3.开发
   # 项目结构
-    ├── dist                   编译结果目录
+    ├── dist                   build目录
     ├── config                 配置目录
     |   ├── dev.js             开发时配置
     |   ├── index.js           默认配置
     |   └── prod.js            打包时配置
     ├── src                    源码目录
+    |   ├── components         自定义组件
+    |   ├── images             图片资源
+    |   ├── utils              公共js资源
+    |   ├── api                api接口
     |   ├── pages              页面文件目录
     |   |   ├── index          index 页面目录
     |   |   |   ├── index.js   index 页面逻辑
     |   |   |   └── index.css  index 页面样式
     |   ├── app.css            项目总通用样式
     |   └── app.js             项目入口文件
-    └── package.json
+    └── package.json          
 
   # Taro 编译分为 dev 和 build 模式：
     -- dev 模式（增加 --watch 参数） 将会监听文件修改
@@ -39,7 +43,7 @@
 
   # taro doctor -该命令可以诊断项目的依赖、设置、结构，以及代码的规范是否存在问题，并尝试给出解决方案
 
-  # Taro create pageName[页面名称] -该命令能在当前项目的pages目录下快速生成新的页面文件，并填充基础代码
+  # taro create pageName[页面名称] -该命令能在当前项目的pages目录下快速生成新的页面文件，并填充基础代码
 
 4.Taro UI -组件库可以在 微信小程序，支付宝小程序，百度小程序，H5 多端适配运行（ReactNative 端暂不支持）
   # 使用Taro 3.x需要搭配Taro UI @3.0.0+版本使用，官网连个版本号都没有，我服！-npm install taro-ui@3.0.0-alpha.3
