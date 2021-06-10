@@ -7,8 +7,6 @@ import apiUrl from '../../api/index'
 
 
 export default function My() {
-  // getUserData();
-
   console.log('111', 'default');
   const [userData, setState] = useState({imgUrl: '', userName: '测试用户', routerLink: [] });
   useLayoutEffect(() =>{

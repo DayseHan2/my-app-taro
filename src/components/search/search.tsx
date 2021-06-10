@@ -49,7 +49,7 @@ class Search extends Component {
 
   onSearch () {
     console.log(this.state.value);
-    this.props.onSearch({ searchVal: this.state.value });
+    this.props.onSearch(this.state.value);
   }
 
   onChangeValue (val) {

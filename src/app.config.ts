@@ -2,7 +2,8 @@ export default {
   pages: [
     'pages/index/index',
     'pages/my/index',
-    'pages/category/index'
+    'pages/category/index',
+    'pages/detail/index'
   ],
   window: {
     backgroundTextStyle: 'light',

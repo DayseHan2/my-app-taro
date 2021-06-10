@@ -1,5 +1,6 @@
 import { Component } from 'react'
 import { View } from '@tarojs/components'
+import { AtToast } from 'taro-ui'
 import './index.scss'
 import Search from '../../components/search/search'
 import Banner from '../../components/banner/banner'
@@ -22,7 +23,9 @@ class Index extends Component {
     super(props);
     this.onSearch = this.onSearch.bind(this);
     this.state = {
-      placeolder: '请输入查询内容'
+      placeolder: '请输入查询内容',
+      searchVal: '',
+      isOpened: false
     }
   }
 
@@ -46,16 +49,23 @@ class Index extends Component {
     console.log('componentDidHide');
   }
 
-  onSearch(queryParams: object) {
-    console.log('查询参数', queryParams);
+  onSearch(searchVal: string) {
+    console.log('查询参数==', searchVal);
+    if (searchVal) {
+      this.setState({
+        searchVal: searchVal,
+        isOpened: true
+      })
+    }
   }
 
   render () {
     return (
       <View className='index'>
         <Search placText={this.state.placeolder} onSearch={this.onSearch}></Search>
-        <Banner></Banner>
-        <GoodsList></GoodsList>
+        <Banner />
+        <GoodsList />
+        <AtToast isOpened text={this.state.searchVal}></AtToast>
       </View>
     )
   }

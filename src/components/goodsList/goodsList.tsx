@@ -1,8 +1,10 @@
 import { Component } from 'react'
+import Taro from '@tarojs/taro' 
 import { View, Image, Text } from '@tarojs/components'
-import './GoodsList.scss'
 import request from '../../utils/request'
 import ApiUrl from '../../api/index'
+import './GoodsList.scss'
+
 interface GoodsList {
   state: StateType,
   props: propType
@@ -61,13 +63,21 @@ class GoodsList extends Component {
     });
   }
 
+  navDetail(item: object) {
+    Taro.navigateTo({
+      url: '/pages/detail/index' + `?img=${item.img}&name=${item.name}`
+    })
+  }
+
   render () {
     return (
       <View className='goods-list'>
         {
           this.state.dataList.map( (item) => {
             return (
-              <View key={item.id} className="item-box">
+              <View key={item.id} className="item-box" onClick={() =>{
+                this.navDetail(item)
+                }}>
                 <Image className='item-img' src={item.img} mode='top'></Image>
                 <Text className="item-text">{item.name}</Text>
               </View>
