@@ -1,6 +1,7 @@
 import { Component } from 'react'
 import { View, Image, Swiper, SwiperItem } from '@tarojs/components'
 import './banner.scss'
+
 interface Banner {
   state: StateType,
   props: propType
@@ -26,23 +27,12 @@ class Banner extends Component {
   }
 
   componentWillMount () {
-    console.log('componentWillMount');
   }
 
   componentDidMount () {
-    console.log('componentDidMount');
   }
 
   componentWillUnmount () { 
-    console.log('componentWillUnmount');
-  }
-
-  componentDidShow () {
-    console.log('componentDidShow');
-  }
-
-  componentDidHide () { 
-    console.log('componentDidHide');
   }
 
   render () {
@@ -55,11 +45,12 @@ class Banner extends Component {
           vertical={false}
           circular
           indicatorDots
-          autoplay>
+          autoplay
+        >
           {
-            this.state.imgList.map( item => {
+            this.state.imgList.map( (item, idx) => {
               return (
-                <SwiperItem>
+                <SwiperItem key={idx}>
                   <Image className='swiper-item-img' src={item} ></Image>
                 </SwiperItem>
               )

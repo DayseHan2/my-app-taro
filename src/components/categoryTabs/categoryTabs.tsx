@@ -28,7 +28,8 @@ function CategoryTabs() {
         current={currentIdx}
         scroll
         tabList={tabList}
-        onClick={handleClick}>
+        onClick={handleClick}
+      >
         <AtTabsPane current={currentIdx} index={0}>
           <View style='font-size:18px;text-align:center;height:100px;'>测试分类一的内容</View>
         </AtTabsPane>

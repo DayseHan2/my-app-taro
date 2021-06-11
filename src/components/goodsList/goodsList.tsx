@@ -28,23 +28,12 @@ class GoodsList extends Component {
 
   componentWillMount () {
     this.getList();
-    console.log('componentWillMount');
   }
 
   componentDidMount () {
-    console.log('componentDidMount');
   }
 
   componentWillUnmount () { 
-    console.log('componentWillUnmount');
-  }
-
-  componentDidShow () {
-    console.log('componentDidShow');
-  }
-
-  componentDidHide () { 
-    console.log('componentDidHide');
   }
 
   getList () {
@@ -76,8 +65,9 @@ class GoodsList extends Component {
           this.state.dataList.map( (item) => {
             return (
               <View key={item.id} className='item-box' onClick={() =>{
-                this.navDetail(item)
-                }}>
+                  this.navDetail(item)
+                }}
+              >
                 <Image className='item-img' src={item.img} mode='top'></Image>
                 <Text className='item-text'>{item.name}</Text>
               </View>

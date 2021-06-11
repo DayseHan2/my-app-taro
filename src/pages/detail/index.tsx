@@ -24,7 +24,9 @@ class Detail extends Component {
       name: ''
     }
   }
-  onLoad(options: any) {
+
+  // onLoad
+  onLoad(options = { img: '', name: '' }) {
     console.log(options);
     this.setState({
       img: options.img,
@@ -32,15 +34,32 @@ class Detail extends Component {
     })
   }
 
-  componentWillMount () { }
+  componentWillMount () {
+    console.log('componentWillMount===渲染虚拟DOM之前');
+  }
+  
+  componentDidMount () {
+    console.log('componentDidMount===渲染虚拟DOM之后');
+  }
 
-  componentDidMount () { }
+  // onReady
+  onReady () {
+    console.log('onReady===首次渲染真实DOM之后');
+  }
 
-  componentWillUnmount () { }
+  componentWillUnmount () { 
+    console.log('componentWillUnmount');
+  }
 
-  componentDidShow () { }
+  // onShow
+  componentDidShow () {
+    console.log('componentDidShow');
+  }
 
-  componentDidHide () { }
+  // onHide
+  componentDidHide () { 
+    console.log('componentDidHide');
+  }
 
   render () {
     return (
@@ -48,8 +67,9 @@ class Detail extends Component {
         <Text className='txt'>{this.state.name}</Text>
         <Image className='img' src={this.state.img} />
         <Button className='btn' onClick={() =>{
-          Taro.navigateBack()
-          }}>返回</Button>
+            Taro.navigateBack()
+          }}
+        >返回</Button>
       </View>
     )
   }

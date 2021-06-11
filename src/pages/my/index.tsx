@@ -69,7 +69,7 @@ export default function My() {
                 onClick={() =>{
                   return routerFn(item.url);
                 }}
-                >
+              >
                 <Text>{item.text}</Text>
                 <Image src={require('../../images/icon_right.svg')}></Image>
               </View>

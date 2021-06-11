@@ -1,7 +1,7 @@
 import { Component } from 'react'
 import { View } from '@tarojs/components'
-import './search.scss'
 import { AtButton, AtInput } from 'taro-ui'
+import './search.scss'
 
 interface Search {
   state: StateType,
@@ -28,28 +28,12 @@ class Search extends Component {
   }
 
   componentWillMount () {
-    console.log('componentWillMount');
   }
-
+  
   componentDidMount () {
-    console.log('componentDidMount');
   }
 
   componentWillUnmount () { 
-    console.log('componentWillUnmount');
-  }
-
-  componentDidShow () {
-    console.log('componentDidShow');
-  }
-
-  componentDidHide () { 
-    console.log('componentDidHide');
-  }
-
-  onSearch () {
-    console.log(this.state.value);
-    this.props.onSearch(this.state.value);
   }
 
   onChangeValue (val) {
@@ -57,6 +41,11 @@ class Search extends Component {
       value: val
     })
     return val
+  }
+
+  onSearch () {
+    console.log(this.state.value);
+    this.props.onSearch(this.state.value);
   }
 
   render () {
@@ -69,13 +58,14 @@ class Search extends Component {
           title=''
           type='text'
           placeholder={this.state.placText}
-          value={this.state.value}/>
+          value={this.state.value}
+        />
         <AtButton 
           className='search-btn'
           type='primary'
           size='small'
           onClick={this.onSearch}
-          >搜索</AtButton>
+        >搜索</AtButton>
       </View>
     )
   }

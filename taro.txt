@@ -55,4 +55,4 @@
   # /src/app.config.js下 pages 数组的第一项代表小程序的初始页面（首页）。小程序中新增/减少页面，
     都需要对 pages 数组进行修改
   
-  # 
+  # onLoad、onReady、componentDidShow、componentDidHide自定义组件没有这些生命周期，要实现需用事件监听实现

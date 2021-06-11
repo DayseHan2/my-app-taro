@@ -3,7 +3,7 @@ import { View } from '@tarojs/components'
 import CategoryTabs from '../../components/categoryTabs/categoryTabs'
 import './index.scss'
 
-function Category() {
+export default function Category() {
   useDidShow(() =>{
 
   })
@@ -14,5 +14,3 @@ function Category() {
     </View>
   )
 }
-
-export default Category
